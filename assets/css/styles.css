@@ -1,0 +1,397 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'Ruhl';
+    src: url(../fonts/FrankRuhlLibre-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Ruhl Medium';
+    src: url(../fonts/FrankRuhlLibre-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Vibes';
+    src: url(../fonts/GreatVibes-Regular.ttf);
+}
+
+html {
+    font-size: 62.5%;
+    --main-color: #424242;
+    --header1: calc(4rem + 1vw);
+    --header2: calc(3.5rem + 1vw);
+    --header3: calc(3rem + 1vw);
+    --header4: calc(2rem + 1vw);
+    --text: calc(1.5rem + 1vw);
+    --big: calc(10rem + 1vw);
+    --ultra: calc(10rem + 1vw);
+    --background-color: #229799;
+    --background-second-color: #F5F5F5;
+    --background-three-color: #48CFCB;
+    --gray-text: #525252;
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #4d4c4ca0;
+}
+
+header{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.805), rgba(0, 0, 0, 0)), url(../img/dados.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: grid;
+    place-items: center;
+    color: white;
+}
+
+h1{
+    font-size: var(--big);
+    font-family: 'Ruhl';
+    letter-spacing: 5px;
+}
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+nav button{
+    background: var(--background-color);
+    color: white;
+    padding: 1rem 5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: var(--header4);
+    font-family: 'Ruhl Medium';
+    cursor: pointer;
+    transition: 0.3s;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    transition: all .5s ease;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+}
+
+nav button:hover{
+    background: var(--background-three-color);
+    box-shadow:0px 0px 16px 4px #010101;
+}   
+/*------------------------------ 
+    Main
+--------------------------------*/
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.805), rgba(0, 0, 0, 0)), url(../img/dados.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+/*------------------------------ 
+    play
+------------------------------*/
+
+.play{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+.dados{
+    width: 400px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background-color: #0000007f;
+    border: none;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* General dado */
+.dadoGrafico {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(20deg) rotateY(20deg);
+    animation: girar 5s;
+    -webkit-animation: girar 5s;
+}
+
+/* cara del dado */
+.dadoGrafico .cara {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Colocación de cada cara */
+.dadoGrafico .uno { transform: rotateY(0deg) translateZ(15px); }
+.dadoGrafico .dos { transform: rotateY(90deg) translateZ(15px); }
+.dadoGrafico .tres { transform: rotateY(180deg) translateZ(15px); }
+.dadoGrafico .cuatro { transform: rotateY(-90deg) translateZ(15px); }
+.dadoGrafico .cinco { transform: rotateX(90deg) translateZ(15px); }
+.dadoGrafico .seis { transform: rotateX(-90deg) translateZ(15px); }
+
+/* Números en las caras */
+.dadoGrafico .uno::before { content: "1"; }
+.dadoGrafico .dos::before { content: "2"; }
+.dadoGrafico .tres::before { content: "3"; }
+.dadoGrafico .cuatro::before { content: "4"; }
+.dadoGrafico .cinco::before { content: "5"; }
+.dadoGrafico .seis::before { content: "6"; }
+
+/* Animación de rotación */
+@keyframes girar {
+    from { transform: rotateX(20deg) rotateY(20deg); }
+    to { transform: rotateX(380deg) rotateY(380deg); }
+}
+
+
+/*------------------------------ 
+    Opciones
+------------------------------*/
+.opciones{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.opcionesTable{
+    width: 100%;
+    height: 200px;
+    padding: 1rem;
+    background: #00000081;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.707);
+    color: white;
+    font-size: var(--text);
+    font-family: 'Ruhl Medium';
+}
+
+#pasar, #subir{
+    width: 125px;
+    height: 25px;
+    color: white;
+    background: rgba(255, 0, 0, 0.573);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    cursor: pointer;
+    transition: all .5s ease;
+    -webkit-transition: all ;
+    -moz-transition: all ;
+    -ms-transition: all ;
+    -o-transition: all ;
+}
+#subir{
+    background: rgba(9, 104, 33, 0.573);
+}
+#pasar:hover{
+    background: rgba(255, 0, 0, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+#subir:hover{
+    background-color: rgba(9, 104, 33, 0.8);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+/*------------------------------ 
+    Ranking
+------------------------------*/
+
+
+/* Estilo general para la sección de ranking */
+.ranking {
+    width: 100%;
+    background: #1e1e2d;
+    color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo del título */
+.ranking h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #00c6ff;
+    border-bottom: 2px solid #00c6ff;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Estilo de la tabla */
+.ranking table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Estilo del encabezado de la tabla */
+.ranking table thead th {
+    background: #28293e;
+    color: #00c6ff;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Estilo del cuerpo de la tabla */
+.ranking table tbody tr {
+    border-bottom: 1px solid #2f2f3e;
+    transition: background 0.3s;
+}
+
+.ranking table tbody tr:hover {
+    background: #2a2a3b;
+}
+
+/* Estilo de las celdas */
+.ranking table tbody td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+/* Estilo de la primera columna (Posición) */
+.ranking table tbody td:first-child {
+    font-weight: bold;
+    color: #00c6ff;
+}
+
+/* Estilo de la columna de Puntaje */
+.ranking table tbody td:last-child {
+    text-align: right;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .ranking table, 
+    .ranking table thead, 
+    .ranking table tbody, 
+    .ranking table th, 
+    .ranking table td, 
+    .ranking table tr { 
+        display: block; 
+    }
+
+    .ranking table thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .ranking table tr { margin: 0 0 20px 0; }
+
+    .ranking table td { 
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+    }
+
+    .ranking table td:before { 
+        position: absolute;
+        top: 12px;
+        left: 15px;
+        width: calc(50% - 30px);
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label);
+        color: #00c6ff;
+        font-weight: bold;
+    }
+}
+
+
+/*------------------------------ 
+    Loading
+------------------------------*/
+
+.loading h1 {
+    font-size: 40px;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: white;
+    position: relative;
+}
+
+.loading h1:before {
+    content: "Lanzando..";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #f6b93b;
+    overflow: hidden;
+    border-right: 4px solid #f6b93b;
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
+    }
+}
